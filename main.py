@@ -255,7 +255,6 @@ def Discriminator():
     return tf.keras.Model(inputs=[inp, tar], outputs=last)
 discriminator = Discriminator()
 discriminator.summary()
-exit(1)
 
 # Losses
 loss_object = tf.keras.losses.BinaryCrossentropy(from_logits=True)
@@ -385,4 +384,4 @@ def fit(train_xy, test_xy, steps):
             checkpoint.save(file_prefix=checkpoint_prefix)
 
 # Full training
-fit(train_xy, test_xy, steps=200000)
+fit(train_xy, test_xy, steps=5000)
