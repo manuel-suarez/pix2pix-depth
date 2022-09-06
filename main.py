@@ -384,4 +384,4 @@ def fit(train_xy, test_xy, steps):
             checkpoint.save(file_prefix=checkpoint_prefix)
 
 # Full training
-fit(train_xy, test_xy, steps=5000)
+fit(train_xy, test_xy, steps=200000)
