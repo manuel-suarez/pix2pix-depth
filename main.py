@@ -10,17 +10,17 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 
-local_dir = '/home/est_posgrado_manuel.suarez/data/NYU_underwater'
+local_dir = '/home/est_posgrado_manuel.suarez/data/NYU_GT'
 
 INPUT_DIM     = (256,256,3)
-OUTPUT_CHANNELS = INPUT_DIM[-1]
+OUTPUT_CHANNELS = 1 #INPUT_DIM[-1]
 BATCH_SIZE    = 10
 R_LOSS_FACTOR = 10000
 EPOCHS        = 100
 INITIAL_EPOCH = 0
 
-xfiles  = glob(os.path.join(local_dir, '*_Underwater_*.bmp'))
-yfiles  = glob(os.path.join(local_dir, '*_Image_*.bmp'))
+xfiles  = glob(os.path.join(local_dir, '*_Image_.bmp'))
+yfiles  = glob(os.path.join(local_dir, '*_Depth_.bmp'))
 xfiles.sort()
 yfiles.sort()
 xfiles=np.array(xfiles)
@@ -97,7 +97,7 @@ for i in range(rows * cols):
 print(x_imgs[0].shape, x_imgs[0].shape)  # a modo de comprobacion
 
 display_images('testfigure1.png', x_imgs, y_imgs, rows=rows, cols=cols)
-
+exit(1)
 # Datasets configuration
 idx = int(BUFFER_SIZE*.8)
 
