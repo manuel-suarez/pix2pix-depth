@@ -97,7 +97,7 @@ for i in range(rows * cols):
 print(x_imgs[0].shape, x_imgs[0].shape)  # a modo de comprobacion
 
 display_images('testfigure1.png', x_imgs, y_imgs, rows=rows, cols=cols)
-exit(1)
+
 # Datasets configuration
 idx = int(BUFFER_SIZE*.8)
 
@@ -226,7 +226,7 @@ def Generator():
 
     return tf.keras.Model(inputs=x_input, outputs=x)
 generator = Generator()
-
+generator.summary()
 
 def Discriminator():
     initializer = tf.random_normal_initializer(0., 0.02)
@@ -254,6 +254,8 @@ def Discriminator():
 
     return tf.keras.Model(inputs=[inp, tar], outputs=last)
 discriminator = Discriminator()
+discriminator.summary()
+exit(1)
 
 # Losses
 loss_object = tf.keras.losses.BinaryCrossentropy(from_logits=True)
